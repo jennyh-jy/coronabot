@@ -8,7 +8,7 @@ res = requests.get(BASE_URL)
 soup = BeautifulSoup(res.content, 'html.parser')
 
 last_updated = soup.select('div.timetable > p > span')[0].text
-last_updated_month = last_updated.split('.')[0][1]
+last_updated_month = last_updated.split('.')[0]
 last_updated_date = last_updated.split('.')[1]
 
 national_data = soup.select(
