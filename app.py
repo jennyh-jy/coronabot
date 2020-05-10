@@ -26,7 +26,7 @@ seoul_daily_change = seoul_data[2].text[1:-1]
 
 result = f'🇰🇷COVID-19 Update🇰🇷\n' + \
     f'📆{last_updated_date}/{last_updated_month}/2020\n\n' + \
-    '😷National Stats\n' + \
+    '😷National stats\n' + \
     f'Daily change: {national_daily_change[1].text[1:-1]}\n' + \
     f'Total cases: {national_total_cases[1].text}\n' + \
     f'Total deaths: {national_total_deaths[1].text}\n\n' + \
