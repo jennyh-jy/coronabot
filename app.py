@@ -20,9 +20,13 @@ national_active_cases = national_data[2].select('div > span')
 national_total_recovered = national_data[3].select('div > span')
 national_total_deaths = national_data[4].select('div > span')
 
-seoul_data = soup.select('div.rpsam_graph > div > button > span')
-seoul_total_cases = seoul_data[1]
-seoul_daily_change = seoul_data[2]
+province_data = soup.select('div.rpsam_graph > div > button > span')
+seoul_total_cases = province_data[1]
+seoul_daily_change = province_data[2]
+incheon_total_cases = province_data[10]
+incheon_daily_change = province_data[11]
+gyeonggi_total_cases = province_data[25]
+gyeonggi_daily_change = province_data[26]
 
 result = f'🇰🇷COVID-19 Update🇰🇷\n' + \
     f'📆{last_updated_date}/{last_updated_month}/2020\n\n' + \
@@ -32,7 +36,13 @@ result = f'🇰🇷COVID-19 Update🇰🇷\n' + \
     f'Total deaths: {national_total_deaths[1].text}\n\n' + \
     '😷Seoul stats\n' + \
     f'Daily change: {seoul_daily_change.text[1:-1]}\n' + \
-    f'Total cases: {seoul_total_cases.text}\n'
+    f'Total cases: {seoul_total_cases.text}\n\n' + \
+    '😷Incheon stats\n' + \
+    f'Daily change: {incheon_daily_change.text[1:-1]}\n' + \
+    f'Total cases: {incheon_total_cases.text}\n\n' + \
+    '😷Gyeonggi stats\n' + \
+    f'Daily change: {gyeonggi_daily_change.text[1:-1]}\n' + \
+    f'Total cases: {gyeonggi_total_cases.text}'
 
 print(result)
 send(result)
